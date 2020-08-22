@@ -1,1 +1,1 @@
-# This is druk-sanam
+# Druk Sanam
