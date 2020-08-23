@@ -1,0 +1,86 @@
+<p>Registering as Farmer</p>
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Login Info</ng-template>
+
+      <mat-form-field appearance="outline" color="primary">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="firstCtrl" required>
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline" color="primary">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline" color="primary">
+        <mat-label>Confirm password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div>
+        <button mat-flat-button matStepperNext color="primary">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Personal Info</ng-template>
+
+      <mat-form-field appearance="outline" color="primary">
+        <mat-label>
+          Name
+        </mat-label>
+        <input matInput required formControlName="secondCtrl">
+      </mat-form-field><br>
+      <mat-radio-group>
+        <mat-radio-button value="1">Male</mat-radio-button>
+        <mat-radio-button value="2">Female</mat-radio-button>
+      </mat-radio-group><br><br>
+      <mat-form-field appearance="outline" color="primary">
+        <mat-label>
+          CID Number
+        </mat-label>
+        <input matInput required>
+      </mat-form-field>
+      <div>
+        <button mat-stroked-button matStepperPrevious color="primary">Previous</button>
+        <button mat-flat-button matStepperNext color="primary">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Address info</ng-template>
+    <mat-form-field appearance="outline" color="primary">
+      <mat-label>Select Dzongkhag</mat-label>
+      <mat-select>
+        <mat-option value="option">Thimphu</mat-option>
+        <mat-option value="option">Haa</mat-option>
+      </mat-select>
+    </mat-form-field><br>
+    <mat-form-field appearance="outline" color="primary">
+      <mat-label>Select Gewog</mat-label>
+      <mat-select>
+        <mat-option value="option">Pangthang</mat-option>
+        <mat-option value="option">Tsangpo</mat-option>
+      </mat-select>
+    </mat-form-field><br>
+    <mat-form-field appearance="outline" color="primary">
+      <mat-label>Select Village</mat-label>
+      <mat-select>
+        <mat-option value="option">rita</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <button mat-stroked-button matStepperPrevious color="primary">previous</button>
+      <button mat-flat-button color="primary" (click)="stepper.reset()">Register</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
